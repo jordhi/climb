@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/imgSpinnerOri"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/vies" />
+
+    <TextView
+        android:id="@+id/lblNovaVia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#7799dd"
+        android:gravity="center|left"
+        android:padding="5dp"
+        android:text="Nom via"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/txtNomVia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" >
+    </EditText>
+	<RadioGroup
+  	   android:id="@+id/rgrpEspClas"
+	   android:layout_width="match_parent"
+ 	   android:layout_height="wrap_content"
+ 	   android:orientation="horizontal" >
+
+	    <RadioButton
+	        android:id="@+id/radioEsp"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:checked="true"
+	        android:text="Esportiva" />
+
+	    <RadioButton
+	        android:id="@+id/radioCla"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="Clàssica" />
+
+	</RadioGroup>
+	
+	<TextView
+	    android:id="@+id/lblDescens"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:background="#7799dd"
+	    android:gravity="center|left"
+	    android:padding="5dp"
+	    android:text="Descens"
+	    android:textSize="15sp"
+	    android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/txtDescens"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:visibility="gone" >
+
+ 	</EditText>
+ 	
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content" >
+
+		<TextView
+		    android:id="@+id/lblGrau"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_weight="1"
+		    android:background="#7799dd"
+		    android:gravity="center|left"
+		    android:padding="5dp"
+		    android:text="Grau"
+		    android:textSize="15sp" />
+
+		<EditText
+		    android:id="@+id/txtGrau"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_weight="1"
+		    android:ems="10"
+		    android:nextFocusLeft="@id/txtNomVia" />
+
+		<CheckBox
+		    android:id="@+id/chkToprope"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_gravity="right"
+		    android:layout_weight="0.7"
+		    android:checked="false"
+		    android:gravity="right|center_vertical|center|start"
+		    android:text="Top rope?" />
+
+	</LinearLayout>
+
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content" >
+
+		<Spinner
+		    android:id="@+id/cmbOrientacio"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="10dp"
+		    android:layout_weight="1"
+		    android:entries="@array/array_orientacio"
+		    android:gravity="center"
+		    android:textAlignment="center" />
+
+		<RatingBar
+		    android:id="@+id/ratQualitat"
+		    style="@style/RatingBarPetit"
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+		    android:layout_marginRight="10dp"
+		    android:layout_weight="1.7"
+		    android:max="5"
+		    android:numStars="5"
+		    android:stepSize="1"
+		    android:textAlignment="center" />
+
+	</LinearLayout>
+
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content" >
+
+		<Button
+		    android:id="@+id/btnInserir"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_weight="1"
+		    android:onClick="InserirDades"
+		    android:text="Inserir" />
+
+		<Button
+		    android:id="@+id/btCancel"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_weight="1"
+		    android:onClick="CancelarNovaVia"
+		    android:text="Cancel·lar" />
+
+	</LinearLayout>
+
+</LinearLayout>

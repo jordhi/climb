@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">aClimb</string>
+    <string name="action_settings">Preferències</string>
+    <string name="inserir_item">Inserir</string>
+	<string name="esborrar_item">Esborrar</string>
+	<string name="editar_item">Editar</string>
+	<string name="compartir_item">Compartir</string>
+	
+	<string-array name="array_orientacio">
+        <item>Nord</item>
+        <item>Nord-Oest</item>
+        <item>Nord-Est</item>
+        <item>Sud</item>
+        <item>Sud-Oest</item>
+        <item>Sud-Est</item>
+        <item>Est</item>
+        <item>Oest</item>
+    </string-array>
+</resources>

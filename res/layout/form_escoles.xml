@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/lblNomEscola"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Nom" />
+
+        <EditText
+            android:id="@+id/etxtNomEscola"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+	</TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/lblComentaris"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comentaris" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <EditText
+            android:id="@+id/etxComentaris"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="15"
+            android:gravity="left"
+            android:height="200dp"
+            android:inputType="textMultiLine" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <Button
+            android:id="@+id/btInserirEscola"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Inserir" />
+
+        <Button
+            android:id="@+id/btCancelar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Cancel·lar" />
+
+    </TableRow>
+
+</TableLayout>
