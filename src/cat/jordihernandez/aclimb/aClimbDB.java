@@ -24,7 +24,7 @@ public class aClimbDB {
 		public static final String COLUMN_NAME_ID = "id_sector";
 		public static final String COLUMN_NAME_NOM_SECTOR = "nom_sector";
 		public static final String COLUMN_NAME_COMENTARIS = "comentaris";
-		public static final String COLUMN_NAME_ESCOLA = "escola";
+		public static final String COLUMN_ID_ESCOLA = "escola";
     }
 	
 	// Taula d'ESCOLES

@@ -107,6 +107,8 @@ public class formulariVies extends Activity {
 		via_nova.setOrientacio(spOrientacio.getSelectedItem().toString());
 		via_nova.setTopRope(TopRope.isChecked());
 		via_nova.setDescens(txtDescens.getText().toString());
+		//via_nova.setSector((int)spSectors.getSelectedItemPosition());
+		via_nova.setEscola((int)(spEscoles.getSelectedItemId()));
 		
 		
 		// Inserir a la base de dades i tancar

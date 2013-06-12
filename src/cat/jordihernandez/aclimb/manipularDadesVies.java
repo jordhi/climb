@@ -40,6 +40,8 @@ public class manipularDadesVies {
 	    values.put(aClimbDB.T_Vies.COLUMN_ORIENTACIO, via_nova.getOrientacio());
 	    values.put(aClimbDB.T_Vies.COLUMN_TOPROPE, via_nova.getTopRope());
 	    values.put(aClimbDB.T_Vies.COLUMN_DESCENS, via_nova.getDescens());
+	    values.put(aClimbDB.T_Vies.COLUMN_SECTOR, via_nova.getSector());
+	    values.put(aClimbDB.T_Vies.COLUMN_ESCOLA, via_nova.getEscola());
 		
 		return values;
 	}
@@ -116,6 +118,8 @@ public class manipularDadesVies {
 	    viasel.setOrientacio(cursor.getString(6));
 	    viasel.setDescens(cursor.getString(7));
 	    viasel.setRating(cursor.getInt(8));
+	    viasel.setSector(cursor.getInt(9));
+	    viasel.setEscola(cursor.getInt(10));
 	    
 //		while (!cursor.isAfterLast()) {
 //		      item_vies via = cursorToVies(cursor);

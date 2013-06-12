@@ -13,7 +13,7 @@ public class aClimbDBHelper extends SQLiteOpenHelper {
 	    aClimbDB.T_Sectors.COLUMN_NAME_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
 	    aClimbDB.T_Sectors.COLUMN_NAME_NOM_SECTOR + " VARCHAR" + "," +
 	    aClimbDB.T_Sectors.COLUMN_NAME_COMENTARIS + " TEXT" + "," +
-	    aClimbDB.T_Sectors.COLUMN_NAME_ESCOLA + " INTEGER" + " );";
+	    aClimbDB.T_Sectors.COLUMN_ID_ESCOLA + " INTEGER" + " );";
 	private static final String SQL_CREATE_ESCOLES =
 		    "CREATE TABLE IF NOT EXISTS " + aClimbDB.T_Escoles.TABLE_NAME + " (" +
 		    aClimbDB.T_Escoles.COLUMN_NAME_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +

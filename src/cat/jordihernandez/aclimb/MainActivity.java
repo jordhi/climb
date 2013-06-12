@@ -33,6 +33,7 @@ public class MainActivity extends FragmentActivity {
                 android.support.v4.app.FragmentManager fm =   getSupportFragmentManager();
                 vies _vies = (vies) fm.findFragmentByTag("vies");
                 escoles _escoles = (escoles) fm.findFragmentByTag("escoles");
+                sectors _sectors = (sectors) fm.findFragmentByTag("sectors");
                 android.support.v4.app.FragmentTransaction ft = fm.beginTransaction();
  
                 /** Detaches the fragment vies if exists */
@@ -42,6 +43,10 @@ public class MainActivity extends FragmentActivity {
                 /** Detaches the fragment escoles if exists */
                 if(_escoles!=null)
                     ft.detach(_escoles);
+                
+                /** Detaches the fragment sectors if exists */
+                if(_sectors!=null)
+                    ft.detach(_sectors);
  
                 /** If current tab is vies */
                 if(tabId.equalsIgnoreCase("vies")){
@@ -54,13 +59,21 @@ public class MainActivity extends FragmentActivity {
                         ft.attach(_vies);
                     }
  
-                }else{    /** If current tab is apple */
+                }else if(tabId.equalsIgnoreCase("escoles")){    /** If current tab is apple */
                     if(_escoles==null){
                         /** Create escoles and adding to fragmenttransaction */
                         ft.add(R.id.TabEscoles,new escoles(), "escoles");
                      }else{
                         /** Bring to the front, if already exists in the fragmenttransaction */
                         ft.attach(_escoles);
+                    }
+                }else if(tabId.equalsIgnoreCase("sectors")){
+                	if(_sectors==null){
+                        /** Create escoles and adding to fragmenttransaction */
+                        ft.add(R.id.TabSectors,new sectors(), "sectors");
+                     }else{
+                        /** Bring to the front, if already exists in the fragmenttransaction */
+                        ft.attach(_sectors);
                     }
                 }
                 ft.commit();
@@ -82,7 +95,11 @@ public class MainActivity extends FragmentActivity {
         tSpecEscoles.setContent(new ContingutsTabHost(getBaseContext()));
         tHost.addTab(tSpecEscoles);
         
-        
+        /** Defining tab builder for Sectors tab */
+        TabHost.TabSpec tSpecSectors = tHost.newTabSpec("sectors");
+        tSpecSectors.setIndicator("Sectors",getResources().getDrawable(R.drawable.icon_escoles_tab));
+        tSpecSectors.setContent(new ContingutsTabHost(getBaseContext()));
+        tHost.addTab(tSpecSectors);
         
     }
     
@@ -108,6 +125,7 @@ public class MainActivity extends FragmentActivity {
 				switch (tHost.getCurrentTab()) { 
 					case 0:  i = new Intent(this, formulariVies.class ); break;
 					case 1:  i = new Intent(this, formulariEscoles.class ); break;
+					case 2:  i = new Intent(this, formulariSectors.class ); break;
 				}
 		        startActivity(i);
 				break;

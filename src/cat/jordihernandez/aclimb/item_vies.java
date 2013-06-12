@@ -4,7 +4,7 @@ public class item_vies {
 	
 	 protected String NomVia,Tipus,Orientacio,Descens;
 	 protected String Grau;
-	 protected int idvia;
+	 protected int idvia, idsector, idescola;
 	 protected int Rating;
 	 protected boolean TopRope;
 		 
@@ -103,6 +103,19 @@ public class item_vies {
 	
 	public void setDescens(String des) {
 		this.Descens = des;
+	}
+	
+	public int getEscola() {
+		return idescola;
+	}
+	public void setEscola(int id) {
+		this.idescola = id;
+	}
+	public int getSector() {
+		return idsector;
+	}
+	public void setSector(int id) {
+		this.idsector = id;
 	}
 		     
 }

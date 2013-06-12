@@ -35,7 +35,13 @@
                     android:layout_height="match_parent" 
                     android:orientation="vertical">
                 </LinearLayout>
-
+			
+                <LinearLayout
+                    android:id="@+id/TabSectors"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" 
+                    android:orientation="vertical">
+                </LinearLayout>
                 
             </FrameLayout>
         </LinearLayout>
