@@ -30,6 +30,7 @@
         <activity android:name="cat.jordihernandez.aclimb.formulariEscoles" />
         <activity android:name="cat.jordihernandez.aclimb.formulariEditarEscoles" />
         <activity android:name="cat.jordihernandez.aclimb.formulariSectors" />
+        <activity android:name="cat.jordihernandez.aclimb.formulariEditarSectors" />
     
     </application>
 

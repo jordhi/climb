@@ -2,7 +2,6 @@ package cat.jordihernandez.aclimb;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 public class formulariEditarVies extends formulariVies {
 	int idvia;

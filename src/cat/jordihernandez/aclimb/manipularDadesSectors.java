@@ -53,7 +53,7 @@ public class manipularDadesSectors {
 		bdClimb.insert(aClimbDB.T_Sectors.TABLE_NAME, null, values);
 	}
 
-	public void EsborrarEscola(int id) {
+	public void EsborrarSector(int id) {
 		System.out.println("Sector amb id: " + id + " esborrada");
 		bdClimb.delete(aClimbDB.T_Sectors.TABLE_NAME,
 				aClimbDB.T_Sectors.COLUMN_NAME_ID + "=" + id, null);

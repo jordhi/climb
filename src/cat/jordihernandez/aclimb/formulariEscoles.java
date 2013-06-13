@@ -3,9 +3,7 @@ package cat.jordihernandez.aclimb;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RatingBar;
 
 public class formulariEscoles extends Activity {
 	EditText nomescola, comentaris;
