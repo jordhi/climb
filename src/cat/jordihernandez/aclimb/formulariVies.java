@@ -6,6 +6,8 @@ import java.util.ListIterator;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -24,7 +26,9 @@ public class formulariVies extends Activity {
 	TextView lblDescens;
 	RatingBar rating;
 	CheckBox TopRope;
-	
+	ArrayList<String> sectorsSpinner;
+	ArrayAdapter<String> adapter_sectors;
+		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -32,13 +36,15 @@ public class formulariVies extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.form_vies);
 		
+		/*** ESCOLES ***/
 		manipularDadesEscoles descoles = new manipularDadesEscoles(this);
 		//Arrays per agafar llistat d'escoles i posar-los al spinner d'escoles
 		ArrayList<item_escoles> llista_escoles = new ArrayList<item_escoles>();
 		ArrayList<String> nom_escoles = new ArrayList<String>();
 		//item_escoles per sel.leccionar una escola quan ens recorrem l'Array
-		item_escoles item = new item_escoles();
+		item_escoles itemEscoles = new item_escoles();
 		
+				
 		txtgrau = (EditText)this.findViewById(R.id.txtGrau);
 		rating = (RatingBar)this.findViewById(R.id.ratQualitat);
 		TopRope = (CheckBox)this.findViewById(R.id.chkToprope);
@@ -55,14 +61,44 @@ public class formulariVies extends Activity {
 		ListIterator<item_escoles> it = llista_escoles.listIterator();
 		//Recórrer escoles i omplir array<string> amb el nom de les escoles
 		while(it.hasNext()) {
-			item = (item_escoles)it.next();
-			nom_escoles.add(item.getNomEscola());
+			itemEscoles = (item_escoles)it.next();
+			nom_escoles.add(itemEscoles.getNomEscola());
 		}
 		//adaptar l'spinner a l'array dels noms escoles
-		ArrayAdapter<String> adapter_escoles = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, nom_escoles);
+		final ArrayAdapter<String> adapter_escoles = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, nom_escoles);
 		adapter_escoles.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spEscoles.setAdapter(adapter_escoles);
 		descoles.tancar();
+		
+		//Omplir spinner Sectors
+		spSectors = (Spinner)this.findViewById(R.id.frmViescmbSector);
+		
+		
+		//adaptar l'spinner a l'array dels noms sectors
+		//final ArrayAdapter<String> adapter_sectors = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, getNomSectorsSpinner());
+		//adapter_escoles.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		//spSectors.setAdapter(adapter_sectors);
+		
+		
+		spEscoles.setOnItemSelectedListener(new OnItemSelectedListener() {
+			
+			@Override
+			public void onItemSelected(AdapterView<?> adapter, View view,
+					int position, long id) {
+				sectorsSpinner=getNomSectorsSpinner();
+				adapter_sectors = new ArrayAdapter<String>(formulariVies.this,android.R.layout.simple_spinner_item, getNomSectorsSpinner());
+				spSectors.setAdapter(adapter_sectors);
+				
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		
 		
 		txtDescens = (EditText)this.findViewById(R.id.txtDescens);
 		lblDescens = (TextView)this.findViewById(R.id.lblDescens);
@@ -100,6 +136,7 @@ public class formulariVies extends Activity {
 			
 		manipularDadesVies dvies = new manipularDadesVies(this);
 		
+		
 		dvies.obrir();
 		// Agafar les dades dels widgets
 		item_vies via_nova = new item_vies(txtvia.getText().toString(),txtgrau.getText().toString(),(int)rating.getRating());
@@ -122,6 +159,29 @@ public class formulariVies extends Activity {
 	public void CancelarNovaVia (View view) {
 		finish();
 		
+	}
+	
+	private ArrayList<String> getNomSectorsSpinner() {
+		/*Retorna el nom dels sectors que copincideixen amb l'escola tridada al spinner spEscola*/
+		manipularDadesSectors dsectors = new manipularDadesSectors(this);
+		ArrayList<item_sectors> llista_sectors = new ArrayList<item_sectors>();
+		item_sectors itemSectors = new item_sectors();
+		ArrayList<String> nom_sectors = new ArrayList<String>();
+		
+		dsectors.obrir();
+		llista_sectors = dsectors.getAllSectors();
+		dsectors.tancar();
+		
+		ListIterator<item_sectors> its = llista_sectors.listIterator();
+		//Recórrer sectors i omplir array<string> amb el nom dels sectors que coincideixen amb l'escola seleccionada
+		while(its.hasNext()) {
+			itemSectors = (item_sectors)its.next();
+			if(itemSectors.getIdEscola() == spEscoles.getSelectedItemId()) {
+				nom_sectors.add(itemSectors.getNomSector());
+			}
+		}
+		
+		return nom_sectors;
 	}
 
 }

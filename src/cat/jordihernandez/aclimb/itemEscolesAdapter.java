@@ -1,7 +1,6 @@
 package cat.jordihernandez.aclimb;
 
 import java.util.ArrayList;
-
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -14,10 +13,13 @@ public class itemEscolesAdapter extends BaseAdapter {
 	protected Activity activity;
 	protected ArrayList<item_escoles> items;
 	
+	
 	public itemEscolesAdapter(Activity activity, ArrayList<item_escoles> items) {
 		// TODO Auto-generated constructor stub
 		this.activity = activity;
 	    this.items = items;
+	    
+	    
 	}
 
 	@Override
@@ -56,9 +58,11 @@ public class itemEscolesAdapter extends BaseAdapter {
 	         
 	    TextView nombre = (TextView) vi.findViewById(R.id.txtNomEscola);
 	    nombre.setText(item.getNomEscola() + " id:" + item.getId());
-	         
-	    TextView comentari = (TextView) vi.findViewById(R.id.txtNumVies);
-	    comentari.setText("N vies");
+	    
+	    
+	    
+	    TextView numvies = (TextView) vi.findViewById(R.id.txtNumVies);
+	    numvies.setText("N vies:");
 	       
 	    return vi;
 	}

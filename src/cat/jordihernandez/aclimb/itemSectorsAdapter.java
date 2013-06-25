@@ -13,11 +13,14 @@ import android.widget.TextView;
 public class itemSectorsAdapter extends BaseAdapter {
 	protected Activity activity;
 	protected ArrayList<item_sectors> items;
+	protected ArrayList<item_escoles> escola;
 	
-	public itemSectorsAdapter(Activity activity, ArrayList<item_sectors> items) {
+	
+	public itemSectorsAdapter(Activity activity, ArrayList<item_sectors> items, ArrayList<item_escoles> escola) {
 		// TODO Auto-generated constructor stub
 		this.activity = activity;
 	    this.items = items;
+	    this.escola = escola;
 	}
 	
 	@Override
@@ -49,16 +52,17 @@ public class itemSectorsAdapter extends BaseAdapter {
 	    }
 	             
 	    item_sectors item = items.get(position);
+	    
 	         
 	    //ImageView image = (ImageView) vi.findViewById(R.id.imgSpinnerOri);
 	    //int imageResource = activity.getResources().getIdentifier(item.getRutaImagen(), null, activity.getPackageName());
 	    //image.setImageDrawable(activity.getResources().getDrawable(imageResource));
 	         
 	    TextView nomsector = (TextView) vi.findViewById(R.id.txtNomSector);
-	    nomsector.setText(item.getNomSector() + " id:" + item.getId());
-	         
+	    nomsector.setText(item.getNomSector());
+	    
 	    TextView nomescolasector = (TextView) vi.findViewById(R.id.txtNomEscolaSector);
-	    nomescolasector.setText("Escola X");
+	    nomescolasector.setText((escola.get(item.getIdEscola())).getNomEscola().toString());
 	       
 	    return vi;
 	}

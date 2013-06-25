@@ -18,8 +18,10 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 public class escoles extends ListFragment {
 
 	
+	
 	 ArrayList<item_escoles> llista_escoles = new ArrayList<item_escoles>();
 	 private manipularDadesEscoles dadesEscoles;
+	 
 	 
 	 /** An array of items to display in ArrayList */
     
@@ -36,8 +38,10 @@ public class escoles extends ListFragment {
    	 /** Creating array adapter to set data in listview */
      dadesEscoles = new manipularDadesEscoles(this.getActivity());
    	 dadesEscoles.obrir();
-   	
+   	 
+   	    	
    	 llista_escoles = dadesEscoles.getAllEscoles();
+   	 
      itemEscolesAdapter adapter = new itemEscolesAdapter(this.getActivity(), llista_escoles);
        
      /** Setting the array adapter to the listview */
@@ -45,6 +49,7 @@ public class escoles extends ListFragment {
        
       //tanquem la bbdd
       dadesEscoles.tancar();
+      
    }
 	
 

@@ -19,6 +19,8 @@ public class sectors extends ListFragment {
 	
 	 ArrayList<item_sectors> llista_sectors = new ArrayList<item_sectors>();
 	 private manipularDadesSectors dadesSectors;
+	 ArrayList<item_escoles> llista_escoles = new ArrayList<item_escoles>();
+	 private manipularDadesEscoles dadesEscoles;
 	
 	 @Override
 	    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -31,16 +33,21 @@ public class sectors extends ListFragment {
 	    	
 	   	 /** Creating array adapter to set data in listview */
 	     dadesSectors = new manipularDadesSectors(this.getActivity());
+	     dadesEscoles = new manipularDadesEscoles(this.getActivity());
 	   	 dadesSectors.obrir();
+	   	 dadesEscoles.obrir();
 	   	
+	   	 llista_escoles = dadesEscoles.getAllEscoles();
 	   	 llista_sectors = dadesSectors.getAllSectors();
-	     itemSectorsAdapter adapter = new itemSectorsAdapter(this.getActivity(), llista_sectors);
+	     itemSectorsAdapter adapter = new itemSectorsAdapter(this.getActivity(), llista_sectors, llista_escoles);
 	       
 	     /** Setting the array adapter to the listview */
 	     setListAdapter(adapter);
 	       
 	      //tanquem la bbdd
+	      dadesEscoles.tancar();
 	      dadesSectors.tancar();
+	     
 	   }
 	 
 	 @Override

@@ -101,4 +101,7 @@ public class manipularDadesEscoles {
 
 		return escolasel;
 	}
+	
+	
+	
 }
