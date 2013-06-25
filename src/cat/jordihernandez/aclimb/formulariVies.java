@@ -70,16 +70,10 @@ public class formulariVies extends Activity {
 		spEscoles.setAdapter(adapter_escoles);
 		descoles.tancar();
 		
-		//Omplir spinner Sectors
+		//Spinner Sectors
 		spSectors = (Spinner)this.findViewById(R.id.frmViescmbSector);
 		
-		
-		//adaptar l'spinner a l'array dels noms sectors
-		//final ArrayAdapter<String> adapter_sectors = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, getNomSectorsSpinner());
-		//adapter_escoles.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		//spSectors.setAdapter(adapter_sectors);
-		
-		
+		//Si la selecció de l'escola canvia, canviem sectors
 		spEscoles.setOnItemSelectedListener(new OnItemSelectedListener() {
 			
 			@Override
@@ -103,7 +97,7 @@ public class formulariVies extends Activity {
 		txtDescens = (EditText)this.findViewById(R.id.txtDescens);
 		lblDescens = (TextView)this.findViewById(R.id.lblDescens);
 		
-		//fem que entrar el nom de la via sigui en primer valor a entrar
+		//fem que entrar el nom de la via sigui el primer valor a entrar
 		txtvia = (EditText)this.findViewById(R.id.txtNomVia);
 		txtvia.requestFocus();
 		
