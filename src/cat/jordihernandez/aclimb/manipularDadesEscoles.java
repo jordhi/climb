@@ -75,7 +75,7 @@ public class manipularDadesEscoles {
 		cursor.close();
 		return escoles;
 	}
-
+	
 	private item_escoles cursorToEscoles(Cursor cursor) {
 		item_escoles escola = new item_escoles();
 		escola.setId(cursor.getInt(0));

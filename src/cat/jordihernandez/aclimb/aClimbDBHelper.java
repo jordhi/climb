@@ -17,7 +17,7 @@ public class aClimbDBHelper extends SQLiteOpenHelper {
 	private static final String SQL_CREATE_ESCOLES =
 		    "CREATE TABLE IF NOT EXISTS " + aClimbDB.T_Escoles.TABLE_NAME + " (" +
 		    aClimbDB.T_Escoles.COLUMN_NAME_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-		    aClimbDB.T_Escoles.COLUMN_NAME_NOM_ESCOLA + " VARCHAR" + "," +
+		    aClimbDB.T_Escoles.COLUMN_NAME_NOM_ESCOLA + " VARCHAR UNIQUE" + "," +
 		    aClimbDB.T_Escoles.COLUMN_NAME_COMENTARIS + " TEXT" +  " );";
 	private static final String SQL_CREATE_VIES =
 			"CREATE TABLE IF NOT EXISTS " + aClimbDB.T_Vies.TABLE_NAME + " (" +

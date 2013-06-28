@@ -103,4 +103,24 @@ public class manipularDadesSectors {
 
 		return sectorsel;
 	}
+	
+	public item_sectors SeleccioSector(int idEscola, String nomSector) {
+		item_sectors sectorsel = new item_sectors();
+		String condicio = aClimbDB.T_Sectors.COLUMN_ID_ESCOLA + "=" + idEscola
+				+ " AND " + aClimbDB.T_Sectors.COLUMN_NAME_NOM_SECTOR + "=" + "'" + nomSector + "'";
+
+		System.out.println("Sel.leccio: " + condicio);
+		Cursor cursor = bdClimb.query(aClimbDB.T_Sectors.TABLE_NAME, null,
+				condicio, null, null, null, null);
+
+		cursor.moveToFirst();
+		sectorsel = cursorToSectors(cursor);
+		sectorsel.setId(cursor.getInt(0));
+		sectorsel.setNomSector(cursor.getString(1));
+		sectorsel.setComentari(cursor.getString(2));
+		sectorsel.setIdEscola(cursor.getInt(3));
+		cursor.close();
+
+		return sectorsel;
+	}
 }

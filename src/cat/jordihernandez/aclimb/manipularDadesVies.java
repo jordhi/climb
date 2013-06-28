@@ -100,6 +100,32 @@ public class manipularDadesVies {
 		    return via;
 	}
 	 
+	public item_vies SeleccioVia(int idEscola, int idSector) {
+		item_vies viasel = new item_vies();
+		String condicio = aClimbDB.T_Vies.COLUMN_ESCOLA + "=" + idEscola + " AND " 
+				+ aClimbDB.T_Vies.COLUMN_SECTOR + "=" + idSector;
+		
+		System.out.println("Sel.leccio: " + condicio);
+		Cursor cursor = bdClimb.query(aClimbDB.T_Vies.TABLE_NAME,
+		        null , condicio, null, null, null, null);
+		
+		cursor.moveToFirst();
+		viasel = cursorToVies(cursor);
+		viasel.setId(cursor.getInt(0));
+	    viasel.setNomVia(cursor.getString(1));
+	    viasel.setTipus(cursor.getString(2));
+	    viasel.setGrau(cursor.getString(4));
+	    viasel.setTopRope(IntToBool(cursor.getInt(5)));
+	    viasel.setOrientacio(cursor.getString(6));
+	    viasel.setDescens(cursor.getString(7));
+	    viasel.setRating(cursor.getInt(8));
+	    viasel.setSector(cursor.getInt(9));
+	    viasel.setEscola(cursor.getInt(10));
+	    cursor.close();
+		return viasel;
+		
+	}
+	
 	public item_vies SeleccioVia(int id) {
 		item_vies viasel = new item_vies();
 		String condicio = aClimbDB.T_Vies.COLUMN_NAME_ID + "=" + id;

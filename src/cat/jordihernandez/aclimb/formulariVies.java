@@ -44,7 +44,7 @@ public class formulariVies extends Activity {
 		//item_escoles per sel.leccionar una escola quan ens recorrem l'Array
 		item_escoles itemEscoles = new item_escoles();
 		
-				
+		spSectors = (Spinner)this.findViewById(R.id.frmViescmbSector);
 		txtgrau = (EditText)this.findViewById(R.id.txtGrau);
 		rating = (RatingBar)this.findViewById(R.id.ratQualitat);
 		TopRope = (CheckBox)this.findViewById(R.id.chkToprope);
@@ -70,9 +70,7 @@ public class formulariVies extends Activity {
 		spEscoles.setAdapter(adapter_escoles);
 		descoles.tancar();
 		
-		//Spinner Sectors
-		spSectors = (Spinner)this.findViewById(R.id.frmViescmbSector);
-		
+				
 		//Si la selecció de l'escola canvia, canviem sectors
 		spEscoles.setOnItemSelectedListener(new OnItemSelectedListener() {
 			
@@ -80,13 +78,13 @@ public class formulariVies extends Activity {
 			public void onItemSelected(AdapterView<?> adapter, View view,
 					int position, long id) {
 				sectorsSpinner=getNomSectorsSpinner();
-				adapter_sectors = new ArrayAdapter<String>(formulariVies.this,android.R.layout.simple_spinner_item, getNomSectorsSpinner());
+				adapter_sectors = new ArrayAdapter<String>(formulariVies.this,android.R.layout.simple_spinner_item, sectorsSpinner);
 				spSectors.setAdapter(adapter_sectors);
 				
 			}
 
 			@Override
-			public void onNothingSelected(AdapterView<?> arg0) {
+			public void onNothingSelected(AdapterView<?> adapter) {
 				// TODO Auto-generated method stub
 				
 			}
@@ -129,7 +127,8 @@ public class formulariVies extends Activity {
 	public void InserirDades (View view) {
 			
 		manipularDadesVies dvies = new manipularDadesVies(this);
-		
+		manipularDadesSectors dsectors = new manipularDadesSectors(this);
+		item_sectors s = new item_sectors();
 		
 		dvies.obrir();
 		// Agafar les dades dels widgets
@@ -138,9 +137,18 @@ public class formulariVies extends Activity {
 		via_nova.setOrientacio(spOrientacio.getSelectedItem().toString());
 		via_nova.setTopRope(TopRope.isChecked());
 		via_nova.setDescens(txtDescens.getText().toString());
-		//via_nova.setSector((int)spSectors.getSelectedItemPosition());
+		//guarda el id del spinner però pot no coincidir amb l'id de l'escola: CAL ARREGLAR-HO
 		via_nova.setEscola((int)(spEscoles.getSelectedItemId()));
 		
+		//per agafar l'id del sector cal anar a la taula dels sectors pq l'id del spinner no coincideix amb l'id
+		dsectors.obrir();
+		 //seleccionar id sector a partir del nom del sector i l'id de l'escola
+		int i = via_nova.getEscola();
+		String ns = spSectors.getSelectedItem().toString();
+		
+		s = dsectors.SeleccioSector(i, ns);   
+		 via_nova.setSector(s.getId());
+		dsectors.tancar();
 		
 		// Inserir a la base de dades i tancar
 		dvies.inserirVia(via_nova);

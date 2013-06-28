@@ -35,7 +35,8 @@ public class formulariEditarVies extends formulariVies {
 		this.rating.setRating(via.getRating());
 		this.spOrientacio.setSelection(via.getIdOrientacio());
 		this.spEscoles.setSelection(via.getEscola());
-		
+		this.spSectors.setSelection(via.getSector());
+		System.out.println("Via amb sector: " + via.getSector() + "i" + spSectors.getSelectedItemId());
 		
 		dvies.tancar();
 	    
@@ -58,6 +59,7 @@ public class formulariEditarVies extends formulariVies {
 		via_nova.setDescens(txtDescens.getText().toString());
 		//via_nova.setSector((int)(spSectors.getSelectedItemPosition()));
 		via_nova.setEscola((int)(spEscoles.getSelectedItemId()));
+		via_nova.setSector((int)(spSectors.getSelectedItemId()));
 				
 		// Modificar a la base de dades i tancar idvia: via a modificar
 		dvies.inserirVia(idvia,via_nova);

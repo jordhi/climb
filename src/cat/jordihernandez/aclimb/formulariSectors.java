@@ -14,6 +14,7 @@ public class formulariSectors extends Activity {
 	EditText nomsector, comentaris;
 	Spinner spEscoles;
 	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -40,6 +41,7 @@ public class formulariSectors extends Activity {
 			item = (item_escoles)it.next();
 			nom_escoles.add(item.getNomEscola());
 		}
+				
 		//adaptar l'spinner a l'array dels noms escoles
 		ArrayAdapter<String> adapter_escoles = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, nom_escoles);
 		adapter_escoles.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
